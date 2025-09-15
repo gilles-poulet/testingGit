@@ -2,8 +2,8 @@
 Dépôt utilisé pour des exercices avec l'outil Git.
 
 Titre du projet: Test sur les fonctionnalit´es de Git.
-∗ Description: Application de l’exercice sur les fonctionnalit´es de Git. Fait par <Prenom -
-Nom >.
+∗ Description: Application de l’exercice sur les fonctionnalit´es de Git. Fait par <Marco -
+Di Rocco >.
 ∗ Pr´erequis: Aucun
 ∗ Installation: git clone https://github.com/gilles-poulet/testingGit.git
 ∗ Exemples: N/A
