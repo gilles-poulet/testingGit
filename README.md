@@ -1,7 +1,7 @@
 # Titre du projet:
-Test sur les fonctionnalit´es de Git.
+Test sur les fonctionnalités de Git.
 # Description:
-Application de l’exercice sur les fonctionnalit´es de Git. Fait par <Casu-Matteo>.
+Application de l’exercice sur les fonctionnalités de Git. Fait par <Casu-Matteo>.
 # Prérequis:
 Aucun
 # Installation:
