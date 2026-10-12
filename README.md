@@ -1,4 +1,5 @@
-# testingGit
+# Test de fonctionnalité
+
 Dépôt utilisé pour des exercices avec l'outil Git
 ∗ Titre du projet: Test sur les fonctionnalites de Git
 ∗ Description: Application de l’exercice sur les fonctionnalites de Git. Fait par Arcuri Milena
@@ -7,3 +8,4 @@ Dépôt utilisé pour des exercices avec l'outil Git
 ∗ Exemples: N/A
 ∗ Contributions: Voir https://docs.github.com/fr/get-started/exploring-projects-on-githubcontributing-to-a-project
 ∗ Licence: Voir https://choosealicense.com/licenses/gpl-3.0/
+
