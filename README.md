@@ -1,7 +1,7 @@
 # Test de fonctionnalité
 
 Dépôt utilisé pour des exercices avec l'outil Git
-∗ Titre du projet: Test sur les fonctionnalites de Git
+- Titre du projet: Test sur les fonctionnalites de Git
 ∗ Description: Application de l’exercice sur les fonctionnalites de Git. Fait par Arcuri Milena
 ∗ Prerequis: Aucun
 ∗ Installation: git clone https://github.com/gilles-poulet/testingGit.git
