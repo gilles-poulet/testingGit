@@ -1,27 +1,15 @@
 # Test sur les fonctionnalités de Git.
 
-## Description
-
+// Description
 Application de l’exercice sur les fonctionnalités de Git. Fait par Benjamin Vander Beken.
-
-## Prérequis
-
+//Prérequis
 Aucun
 
-## Installation
-
-```bash
+// Installation
 git clone https://github.com/gilles-poulet/testingGit.git
-```
-
-## Exemples
-
+//Exemples
 N/A
-
-## Contributions
-
+//Contributions
 Voir https://docs.github.com/fr/get-started/exploring-projects-on-github/contributing-to-a-project.
-
-## Licence
-
+//Licence
 Voir https://choosealicense.com/licenses/gpl-3.0/.
