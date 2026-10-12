@@ -12,6 +12,8 @@ Ce dépôt est utilisé pour apprendre et pratiquer les principales commandes de
 
 Aucun.
 
+Pour exécuter les commandes présentées ci-dessous, Git doit être installé sur l'ordinateur. Visual Studio Code est facultatif.
+
 ## Installation
 
 ### 1. Créer un dossier de travail
@@ -44,7 +46,7 @@ cd testingGit
 git switch -c harry-francis
 ```
 
-### 6. Ouvrir le projet dans VS Code
+### 6. Ouvrir le projet dans Visual Studio Code
 
 ```cmd
 code .
@@ -58,7 +60,7 @@ Afficher les branches locales :
 git branch
 ```
 
-Exemple de résultat attendu :
+Résultat obtenu :
 
 ```text
 * harry-francis
@@ -69,31 +71,117 @@ L'astérisque (`*`) indique la branche actuellement utilisée.
 
 ## Enregistrement des modifications
 
-Après avoir modifié le fichier `README.md`, vérifier les changements :
+### 1. Vérifier les modifications
+
+Après avoir modifié et enregistré le fichier `README.md` :
 
 ```cmd
 git status
 ```
 
-Ajouter le fichier à l'index Git :
+Exemple de résultat :
+
+```text
+On branch harry-francis
+Changes not staged for commit:
+    modified: README.md
+```
+
+### 2. Ajouter le fichier à l'index Git
 
 ```cmd
 git add README.md
 ```
 
-Créer un commit :
+### 3. Créer un commit
 
 ```cmd
 git commit -m "Mise a jour du README.md"
 ```
 
-Envoyer la branche vers le dépôt distant :
+Résultat obtenu lors du premier commit :
+
+```text
+[harry-francis c039acd] Mise a jour du README.md
+1 file changed, 112 insertions(+), 2 deletions(-)
+```
+
+## Envoi des modifications sur GitHub
+
+### 1. Vérifier les autorisations
+
+Pour pouvoir envoyer les modifications sur le dépôt du professeur, il faut disposer des droits d'écriture.
+
+Dans cet exercice, le professeur avait envoyé une invitation de collaboration sur GitHub.
+
+Cette invitation devait être acceptée avant de pouvoir effectuer le `push`.
+
+Sans cette autorisation, GitHub renvoie une erreur :
+
+```text
+remote: Permission to gilles-poulet/testingGit.git denied to documentHarry.
+fatal: unable to access repository: The requested URL returned error: 403
+```
+
+**Solution :** accepter l'invitation GitHub du propriétaire du dépôt, puis relancer la commande `git push`.
+
+### 2. Pousser la branche vers le dépôt distant
 
 ```cmd
 git push -u origin harry-francis
 ```
 
-**Remarque :** cette dernière commande nécessite les droits d'écriture sur le dépôt distant.
+Cette commande envoie la branche locale `harry-francis` vers le dépôt distant `origin`.
+
+L'option `-u` établit le suivi entre la branche locale et la branche distante.
+
+Après acceptation de l'invitation, le résultat obtenu est :
+
+```text
+To https://github.com/gilles-poulet/testingGit.git
+ * [new branch] harry-francis -> harry-francis
+branch 'harry-francis' set up to track 'origin/harry-francis'.
+```
+
+### 3. Consulter la branche sur GitHub
+
+[Voir la branche harry-francis](https://github.com/gilles-poulet/testingGit/tree/harry-francis)
+
+### 4. Envoyer les prochaines modifications
+
+Une fois le suivi de la branche configuré, les prochains envois peuvent être effectués avec :
+
+```cmd
+git add README.md
+git commit -m "Mise a jour de la documentation"
+git push
+```
+
+## Vérifications finales
+
+Vérifier l'état du dépôt :
+
+```cmd
+git status
+```
+
+Consulter l'historique des commits :
+
+```cmd
+git log --oneline -3
+```
+
+Afficher les branches locales et distantes :
+
+```cmd
+git branch -a
+```
+
+Vérifier l'adresse du dépôt distant :
+
+```cmd
+git remote -v
+```
 
 ## Exemples
 
