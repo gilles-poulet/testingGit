@@ -1,200 +1,259 @@
-# Test sur les fonctionnalités de Git
+## Exemples
 
-## Description
+Cette section présente les commandes Git exécutées dans l'invite de commandes Windows 11 (CMD), ainsi que les résultats obtenus pendant l'exercice.
 
-Application de l'exercice sur les fonctionnalités de Git.
+### 1. Ajouter le fichier README.md
 
-**Réalisé par :** Harry Francis
-
-Ce dépôt est utilisé pour apprendre et pratiquer les principales commandes de Git et GitHub.
-
-## Prérequis
-
-Aucun.
-
-Pour exécuter les commandes présentées ci-dessous, Git doit être installé sur l'ordinateur. Visual Studio Code est facultatif.
-
-## Installation
-
-### 1. Créer un dossier de travail
-
-```cmd
-mkdir Git_test1
-```
-
-### 2. Entrer dans le dossier
-
-```cmd
-cd Git_test1
-```
-
-### 3. Cloner le dépôt GitHub
-
-```cmd
-git clone https://github.com/gilles-poulet/testingGit.git
-```
-
-### 4. Entrer dans le dépôt cloné
-
-```cmd
-cd testingGit
-```
-
-### 5. Créer une branche personnelle
-
-```cmd
-git switch -c harry-francis
-```
-
-### 6. Ouvrir le projet dans Visual Studio Code
-
-```cmd
-code .
-```
-
-## Vérification de la branche
-
-Afficher les branches locales :
-
-```cmd
-git branch
-```
-
-Résultat obtenu :
-
-```text
-* harry-francis
-  main
-```
-
-L'astérisque (`*`) indique la branche actuellement utilisée.
-
-## Enregistrement des modifications
-
-### 1. Vérifier les modifications
-
-Après avoir modifié et enregistré le fichier `README.md` :
-
-```cmd
-git status
-```
-
-Exemple de résultat :
-
-```text
-On branch harry-francis
-Changes not staged for commit:
-    modified: README.md
-```
-
-### 2. Ajouter le fichier à l'index Git
+Après avoir modifié le fichier `README.md`, l'ajouter à l'index Git :
 
 ```cmd
 git add README.md
 ```
 
-### 3. Créer un commit
+Cette commande prépare le fichier pour son prochain commit.
+
+### 2. Créer le premier commit
 
 ```cmd
 git commit -m "Mise a jour du README.md"
 ```
 
-Résultat obtenu lors du premier commit :
+Résultat obtenu :
 
 ```text
 [harry-francis c039acd] Mise a jour du README.md
-1 file changed, 112 insertions(+), 2 deletions(-)
+ 1 file changed, 112 insertions(+), 2 deletions(-)
 ```
 
-## Envoi des modifications sur GitHub
+**Explication :**
 
-### 1. Vérifier les autorisations
+- `harry-francis` : branche sur laquelle le commit a été créé.
+- `c039acd` : identifiant abrégé du commit.
+- `112 insertions(+)` : 112 lignes ajoutées.
+- `2 deletions(-)` : 2 lignes supprimées.
 
-Pour pouvoir envoyer les modifications sur le dépôt du professeur, il faut disposer des droits d'écriture.
+### 3. Premier push : erreur d'autorisation
 
-Dans cet exercice, le professeur avait envoyé une invitation de collaboration sur GitHub.
-
-Cette invitation devait être acceptée avant de pouvoir effectuer le `push`.
-
-Sans cette autorisation, GitHub renvoie une erreur :
-
-```text
-remote: Permission to gilles-poulet/testingGit.git denied to documentHarry.
-fatal: unable to access repository: The requested URL returned error: 403
-```
-
-**Solution :** accepter l'invitation GitHub du propriétaire du dépôt, puis relancer la commande `git push`.
-
-### 2. Pousser la branche vers le dépôt distant
+Commande exécutée :
 
 ```cmd
 git push -u origin harry-francis
 ```
 
-Cette commande envoie la branche locale `harry-francis` vers le dépôt distant `origin`.
-
-L'option `-u` établit le suivi entre la branche locale et la branche distante.
-
-Après acceptation de l'invitation, le résultat obtenu est :
+Résultat obtenu :
 
 ```text
+remote: Permission to gilles-poulet/testingGit.git denied to documentHarry.
+fatal: unable to access 'https://github.com/gilles-poulet/testingGit.git/': The requested URL returned error: 403
+```
+
+**Explication :**
+
+L'erreur HTTP `403` indique que GitHub a refusé l'opération faute d'autorisation.
+
+Dans cet exercice, le problème venait d'une invitation de collaboration envoyée par le professeur qui n'avait pas encore été acceptée.
+
+**Solution :** accepter l'invitation sur GitHub, puis relancer la commande.
+
+### 4. Deuxième push : envoi réussi
+
+Après avoir accepté l'invitation GitHub :
+
+```cmd
+git push -u origin harry-francis
+```
+
+Résultat obtenu :
+
+```text
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 32 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 1.08 KiB | 1.08 MiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+
+remote:
+remote: Create a pull request for 'harry-francis' on GitHub by visiting:
+remote: https://github.com/gilles-poulet/testingGit/pull/new/harry-francis
+
 To https://github.com/gilles-poulet/testingGit.git
  * [new branch] harry-francis -> harry-francis
 branch 'harry-francis' set up to track 'origin/harry-francis'.
 ```
 
-### 3. Consulter la branche sur GitHub
+**Explication :**
 
-[Voir la branche harry-francis](https://github.com/gilles-poulet/testingGit/tree/harry-francis)
+- Les objets Git ont été envoyés correctement.
+- La branche distante `harry-francis` a été créée.
+- Le suivi entre la branche locale et la branche distante a été configuré.
+- GitHub propose de créer une Pull Request.
 
-### 4. Envoyer les prochaines modifications
+[Créer une Pull Request](https://github.com/gilles-poulet/testingGit/pull/new/harry-francis)
 
-Une fois le suivi de la branche configuré, les prochains envois peuvent être effectués avec :
+### 5. Effectuer un deuxième commit
+
+Après une nouvelle modification du README :
 
 ```cmd
 git add README.md
 git commit -m "Mise a jour de la documentation"
+```
+
+Résultat obtenu :
+
+```text
+[harry-francis 8cdd9da] Mise a jour de la documentation
+ 1 file changed, 95 insertions(+), 7 deletions(-)
+```
+
+Un deuxième commit a été créé sur la même branche.
+
+### 6. Envoyer les nouvelles modifications
+
+```cmd
 git push
 ```
 
-## Vérifications finales
+Résultat obtenu :
 
-Vérifier l'état du dépôt :
+```text
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 32 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 1.78 KiB | 1.78 MiB/s, done.
+Total 3 (delta 0), reused 0, pack-reused 0 (from 0)
+
+To https://github.com/gilles-poulet/testingGit.git
+   c039acd..8cdd9da  harry-francis -> harry-francis
+```
+
+**Explication :**
+
+Le commit `8cdd9da` a été envoyé sur GitHub.
+
+La commande `git push` suffit désormais, car le suivi distant a été configuré lors du premier envoi réussi avec l'option `-u`.
+
+### 7. Vérifier l'état du dépôt
 
 ```cmd
 git status
 ```
 
-Consulter l'historique des commits :
+Résultat obtenu :
+
+```text
+On branch harry-francis
+Your branch is up to date with 'origin/harry-francis'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .vscode/
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+**Explication :**
+
+- La branche locale est synchronisée avec la branche distante.
+- Le dossier `.vscode/` est présent localement, mais n'est pas suivi par Git.
+- Aucun fichier suivi ne contient de modification en attente.
+
+Le dossier `.vscode/` contient généralement des paramètres propres à Visual Studio Code.
+
+Il n'est pas nécessaire de l'ajouter pour cet exercice.
+
+Pour l'ignorer définitivement, il est possible d'ajouter la ligne suivante dans un fichier `.gitignore` :
+
+```gitignore
+.vscode/
+```
+
+### 8. Consulter l'historique des commits
 
 ```cmd
 git log --oneline -3
 ```
 
-Afficher les branches locales et distantes :
+Résultat obtenu :
+
+```text
+8cdd9da (HEAD -> harry-francis, origin/harry-francis) Mise a jour de la documentation
+c039acd Mise a jour du README.md
+0c7c8f6 (origin/main, origin/JonathanKasap, origin/HEAD, main) Initial commit
+```
+
+**Explication :**
+
+- `8cdd9da` : dernier commit effectué.
+- `c039acd` : premier commit du README.
+- `0c7c8f6` : commit initial du dépôt.
+- `HEAD` : indique le commit actuellement utilisé.
+- `origin/harry-francis` : branche distante suivie.
+
+### 9. Afficher les branches locales et distantes
 
 ```cmd
 git branch -a
 ```
 
-Vérifier l'adresse du dépôt distant :
+Extrait du résultat obtenu :
+
+```text
+* harry-francis
+  main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/harry-francis
+  remotes/origin/main
+```
+
+**Explication :**
+
+- `harry-francis` : branche locale active.
+- `main` : branche principale locale.
+- `remotes/origin/harry-francis` : référence locale de la branche distante personnelle.
+- `remotes/origin/main` : référence locale de la branche principale distante.
+
+La commande affiche également les branches des autres étudiants présentes sur le dépôt distant.
+
+### 10. Vérifier l'adresse du dépôt distant
 
 ```cmd
 git remote -v
 ```
 
-## Exemples
+Résultat obtenu :
 
-N/A
+```text
+origin  https://github.com/gilles-poulet/testingGit.git (fetch)
+origin  https://github.com/gilles-poulet/testingGit.git (push)
+```
 
-## Contributions
+**Explication :**
 
-Voir la documentation officielle de GitHub :
+- `origin` : nom du dépôt distant.
+- `fetch` : adresse utilisée pour récupérer les modifications.
+- `push` : adresse utilisée pour envoyer les modifications.
 
-[Contribuer à un projet sur GitHub](https://docs.github.com/fr/get-started/exploring-projects-on-github/contributing-to-a-project)
+Le dépôt distant correspond bien à celui du professeur.
 
-## Licence
+### 11. Résultat final
 
-Voir la licence GNU GPL v3.0 :
+L'exercice a permis de :
 
-[GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/)
+- Cloner un dépôt GitHub.
+- Créer une branche personnelle.
+- Modifier le fichier `README.md`.
+- Ajouter les modifications à l'index Git.
+- Créer plusieurs commits.
+- Résoudre une erreur d'autorisation GitHub.
+- Envoyer une branche vers le dépôt distant.
+- Synchroniser les modifications locales et distantes.
+- Vérifier l'historique et les branches Git.
+
+**Branche créée :** `harry-francis`
+
+**Dépôt GitHub :** [gilles-poulet/testingGit](https://github.com/gilles-poulet/testingGit)
+
+**Branche personnelle :** [harry-francis](https://github.com/gilles-poulet/testingGit/tree/harry-francis)
